@@ -9,6 +9,10 @@
 }
 
 .mw-main {
+  height: 100%;
+  display: flex;
+  padding: $spacing-m;
+  flex-direction: column;
   flex: 1;
 }
 

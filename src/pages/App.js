@@ -1,11 +1,17 @@
 import React from 'react';
 import {Helmet} from 'react-helmet';
+import d3 from 'd3';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import Chart from '../components/chart';
 import Legend from '../components/legend';
 import Button from '../components/button';
 import '../scss/main.scss';
+
+const onDownloadClick = () => {
+  d3.selectAll(".layerArc").style("fill", "#fff");
+  d3.selectAll(".layerText").style("fill", "#6b6b6b");
+};
 
 const App = () => {
   return (
@@ -28,7 +34,7 @@ const App = () => {
         <Legend />
         <Chart />
         <div className="mw-main__buttons">
-          <Button className="mw-btn__secondary">Reset</Button>
+          <Button className="mw-btn__secondary" onClick={onDownloadClick}>Reset</Button>
           <Button className="mw-btn__primary">Download</Button>
         </div>
       </main>

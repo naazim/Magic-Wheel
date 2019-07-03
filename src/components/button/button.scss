@@ -10,6 +10,19 @@
   text-align: center;
   background-color: transparent;
   font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+
+  &:hover, &:focus {
+    opacity: 0.6;
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+    cursor: default;
+  }
 }
 
 .mw-btn__primary {

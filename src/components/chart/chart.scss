@@ -1,6 +1,7 @@
 
-#chart {
+.chart {
   text-align: center;
+  flex: 1;
 }
 
 .layerArc {
@@ -8,7 +9,6 @@
   stroke: #ff4700;
   stroke-width: 2px;
   cursor: pointer;
-  user-select: none;
   transition: fill 0.2s ease-in;
 }
 
@@ -17,6 +17,7 @@
   font-size: 13px;
   pointer-events: none;
   letter-spacing: 1px;
+  user-select: none;
 }
 
 .legend {

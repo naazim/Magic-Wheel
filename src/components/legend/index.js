@@ -8,7 +8,7 @@ const colorText = {
 const Legend = () => {
   return (
     <div className="mw-legend">
-      { colors.map((color, i) => <span key={i} className="mw-legend__color" style={{ backgroundColor: color}} >{colorText.en[i]}</span>) }
+      { colors.map((color, i) => <span key={i} className="mw-legend__color" style={{'--bgcolor': color}} >{colorText.en[i]}</span>) }
     </div>
   );
 };
