@@ -45,14 +45,13 @@ class Chart extends React.Component {
     const layerSize = height / layerData.length / 2;
     const textPadding = layerSize / 2 + 4; // 4 = border width * 2
 
-    console.log(layerSize, height/2/5);
-
     const svg = d3
       .select(".chart")
       .append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
-      .attr("id", "multilayerPie")
+      .attr("id", "multiLayerPie")
+      .style("font-family","\"Roboto\", -apple-system, BlinkMacSystemFont, \"Segoe UI\"")
       .append("g")
       .attr("class", "wrapper")
       .attr(
@@ -64,9 +63,8 @@ class Chart extends React.Component {
         ")"
       );
 
-// Scales & Data
 
-
+    // Loop through arrays and draw svg fo all layers
     for (let index = 0; index < layerData.length; index++) {
 
       //Creates a function that makes SVG paths in the shape of arcs with the specified inner and outer radius
