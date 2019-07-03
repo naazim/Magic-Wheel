@@ -1,0 +1,34 @@
+.mw-switch__btn {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  background: no-repeat center top / cover;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0.4;
+  text-indent: -9999px;
+  overflow: hidden;
+  padding: 0;
+
+  &:not(:last-child) {
+    margin-right: $spacing-s;
+  }
+
+  &-de {
+    background-image: url('../assets/flag-de.png');
+  }
+
+  &-en {
+    background-image: url('../assets/flag-en.png');
+  }
+
+  &:hover, &:focus {
+    transform: scale(1.2);
+  }
+
+  &--active {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,12 @@
+
+.mw-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-m;
+  border-bottom: 2px solid $primary-color;
+
+  &__logo {
+    height: 30px;
+  }
+}

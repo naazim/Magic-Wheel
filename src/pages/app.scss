@@ -1,0 +1,19 @@
+#root {
+  height: 100%;
+}
+
+.mw {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.mw-main {
+  flex: 1;
+}
+
+.mw-main__buttons {
+  padding: $spacing-m;
+  display: flex;
+  justify-content: space-between;
+}

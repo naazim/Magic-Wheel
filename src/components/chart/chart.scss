@@ -1,0 +1,45 @@
+
+#chart {
+  text-align: center;
+}
+
+.layerArc {
+  fill: white;
+  stroke: #ff4700;
+  stroke-width: 2px;
+  cursor: pointer;
+  user-select: none;
+  transition: fill 0.2s ease-in;
+}
+
+.layerText {
+  fill: #6b6b6b;
+  font-size: 13px;
+  pointer-events: none;
+  letter-spacing: 1px;
+}
+
+.legend {
+  float:right;
+  font-size: 12px;
+}
+
+.label {
+  text-align: center;
+  color: #fff;
+  padding: 5px 20px;
+  border-radius: 20px;
+
+
+  &:nth-child(1) {
+    background-color: #7FD322;
+  }
+
+  &:nth-child(2) {
+    background-color: #FFD805;
+  }
+
+  &:nth-child(3) {
+    background-color: #DC3545;
+  }
+}
