@@ -1,5 +1,7 @@
 import React from 'react';
 import d3 from 'd3';
+import dataEN from '../../config/data-en';
+
 
 export const colors = ["#7FD322", "#FFD805", "#DC3545"];
 
@@ -18,13 +20,7 @@ class Chart extends React.Component {
   }
 
   createPieChart() {
-    const layerData = [
-      ["Freude an der Arbeit", "Inhalt der Arbeit, Sinn", "Arbeitstätig-keiten"],
-      ["Herausforderungsgrad", "Arbeitsvielfalt, Abwechslung", "Entscheidungsspielraum"],
-      ["Verhältnis zu Vorgesetzten", "Verhältnis zu Kollegen/innen und Kunden/innen", "Firmenkultur, Leitbild, Werte", "Arbeitsklima insgesamt"],
-      ["Lohn- und Sozialleistungen", "Arbeitszeit, Arbeitsflexibilität", "Arbeitsplatz an sich/ Ausstattung", "Tools/  Technologien, Interne Prozess", "Arbeitsweg", "Innovationsgrad des\n Unternehmens"],
-      ["Weiterbildungsangebot der Firma", "Persönliche Personalentwicklung", "Firmenorganisation, -struktur", "Karrieremöglichkeiten in der Firma"]
-    ];
+    const layerData = dataEN;
     
 
     let y;
