@@ -6,21 +6,19 @@ import d3 from 'd3';
 export const colors = ["#7FD322", "#FFD805", "#DC3545"];
 
 class Chart extends React.Component {
-  constructor(props) {
-    super(props);
-    this.createPieChart = this.createPieChart.bind(this);
-  }
 
   componentDidMount() {
     this.createPieChart();
   }
 
   componentDidUpdate() {
-    this.createPieChart();
+    // this.createPieChart();
+
   }
 
-  createPieChart() {
+  createPieChart = () => {
     const layerData = i18next.t('chartdata', {returnObjects: true});
+
 
     let y;
     const rgbToHex = x =>
@@ -36,15 +34,11 @@ class Chart extends React.Component {
       height = containerHeight - margin.top - margin.bottom;
 
 
-
     const layerSize = height / layerData.length / 2;
     const textPadding = layerSize / 2 + 4; // 4 = border width * 2
 
-    // Remove the existing svg before drawing a new one
-    d3.select(".chart svg").remove();
 
-
-    const svg = d3
+    this.svg = d3
       .select(".chart")
       .append("svg")
       .attr("width", width + margin.left + margin.right)
@@ -78,15 +72,15 @@ class Chart extends React.Component {
       });
 
       //Draw the arcs themselves
-      svg
-        .selectAll(`.layerArc${index}`)
+      this.svg
+        .selectAll(`.chart__arc${index}`)
         .data(pie(layerData[index]))
         .enter()
         .append("path")
-        .attr("class", "layerArc")
+        .attr("class", "chart__arc")
         .attr("d", arc)
         .attr("id", function (d, i) {
-          return `layerArc${index}_${i}`;
+          return `chart__arc${index}_${i}`;
         })
         .on("click", function (d) {
           const currentColorRGB = d3.select(this).style("fill");
@@ -98,18 +92,18 @@ class Chart extends React.Component {
         });
 
       // Append the layer names within the arcs
-      svg
-        .selectAll(`.layerText${index}`)
+      this.svg
+        .selectAll(`.chart__text${index}`)
         .data(layerData[index])
         .enter()
         .append("text")
-        .attr("class", "layerText")
+        .attr("class", `chart__text${index === 0 ? ' chart__text--innermost' : ''}`)
         .attr("dy", textPadding) //Move the text down
         .append("textPath")
         .style({"text-anchor": "middle"})
         .attr("startOffset", `23%`)
         .attr("xlink:href", function (d, i) {
-          return `#layerArc${index}_${i}`;
+          return `#chart__arc${index}_${i}`;
         })
         .text(d => d);
     }

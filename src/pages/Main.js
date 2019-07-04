@@ -11,8 +11,8 @@ import Meta from '../components/meta';
 
 
 const onResetClick = () => {
-  d3.selectAll(".layerArc").style("fill", "#fff");
-  d3.selectAll(".layerText").style("fill", "#6b6b6b");
+  d3.selectAll(".chart__arc").style("fill", "#fff");
+  d3.selectAll(".chart__text").style("fill", "#6b6b6b");
 };
 
 const onDownloadClick = () => {

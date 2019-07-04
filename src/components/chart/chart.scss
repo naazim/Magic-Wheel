@@ -1,10 +1,9 @@
-
 .chart {
   text-align: center;
   flex: 1;
 }
 
-.layerArc {
+.chart__arc {
   fill: white;
   stroke: #ff4700;
   stroke-width: 2px;
@@ -12,35 +11,14 @@
   transition: fill 0.2s ease-in;
 }
 
-.layerText {
+.chart__text {
   fill: #6b6b6b;
-  font-size: 13px;
+  font-size: .8em;
   pointer-events: none;
   letter-spacing: 1px;
   user-select: none;
-}
 
-.legend {
-  float:right;
-  font-size: 12px;
-}
-
-.label {
-  text-align: center;
-  color: #fff;
-  padding: 5px 20px;
-  border-radius: 20px;
-
-
-  &:nth-child(1) {
-    background-color: #7FD322;
-  }
-
-  &:nth-child(2) {
-    background-color: #FFD805;
-  }
-
-  &:nth-child(3) {
-    background-color: #DC3545;
+  &--innermost {
+    letter-spacing: 4px;
   }
 }
