@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "babel-loader": "8.0.4",
     "clsx": "^1.0.4",
     "d3": "3.5.17",
     "i18next": "^17.0.6",
