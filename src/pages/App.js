@@ -1,11 +1,13 @@
 import React from 'react';
 import Main from './Main';
+import { withNamespaces } from 'react-i18next';
 import '../scss/main.scss';
 
 const App = () => {
+
   return (
-    <Main/>
+   <Main/>
   );
 };
 
-export default App;
+export default withNamespaces()(App);

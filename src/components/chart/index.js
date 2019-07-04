@@ -1,6 +1,6 @@
 import React from 'react';
+import i18next from 'i18next';
 import d3 from 'd3';
-import dataEN from '../../config/data-en';
 
 
 export const colors = ["#7FD322", "#FFD805", "#DC3545"];
@@ -20,8 +20,7 @@ class Chart extends React.Component {
   }
 
   createPieChart() {
-    const layerData = dataEN;
-    
+    const layerData = i18next.t('chartdata', {returnObjects: true});
 
     let y;
     const rgbToHex = x =>
@@ -40,6 +39,10 @@ class Chart extends React.Component {
 
     const layerSize = height / layerData.length / 2;
     const textPadding = layerSize / 2 + 4; // 4 = border width * 2
+
+    // Remove the existing svg before drawing a new one
+    d3.select(".chart svg").remove();
+
 
     const svg = d3
       .select(".chart")
@@ -73,8 +76,6 @@ class Chart extends React.Component {
       const pie = d3.layout.pie().value(function (d) {
         return true;
       });
-
-      // Create the Slices
 
       //Draw the arcs themselves
       svg

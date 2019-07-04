@@ -1,5 +1,6 @@
 import React from 'react';
 import d3 from 'd3';
+import i18next from 'i18next';
 import { saveSvgAsPng } from 'save-svg-as-png';
 import Header from '../components/header';
 import Footer from '../components/footer';
@@ -7,6 +8,7 @@ import Chart from '../components/chart';
 import Legend from '../components/legend';
 import Button from '../components/button';
 import Meta from '../components/meta';
+
 
 const onResetClick = () => {
   d3.selectAll(".layerArc").style("fill", "#fff");
@@ -26,8 +28,8 @@ const Main = () => {
         <Legend />
         <Chart />
         <div className="mw-main__buttons">
-          <Button className="mw-btn__secondary" onClick={onResetClick}>Reset</Button>
-          <Button className="mw-btn__primary"onClick={onDownloadClick}>Download</Button>
+          <Button className="mw-btn__secondary" onClick={onResetClick}>{i18next.t('reset')}</Button>
+          <Button className="mw-btn__primary"onClick={onDownloadClick}>{i18next.t('download')}</Button>
         </div>
       </main>
       <Footer />

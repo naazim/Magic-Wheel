@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "babel-loader": "8.0.4",
     "clsx": "^1.0.4",
     "d3": "3.5.17",
+    "i18next": "^17.0.6",
+    "i18next-browser-languagedetector": "^3.0.1",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
+    "react-i18next": "^9.0.10",
     "react-scripts": "3.0.1",
     "save-svg-as-png": "^1.4.14"
   },
