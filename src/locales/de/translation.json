@@ -1,7 +1,6 @@
 {
   "reset": "zurücksetzen",
   "download": "herunterladen",
-  "arr": ["Freude an der Arbeit", "Inhalt der Arbeit, Sinn", "Arbeitstätig-keiten"],
   "chartdata": [
     ["Freude an der Arbeit", "Inhalt der Arbeit, Sinn", "Arbeitstätig-keiten"],
     ["Herausforderungsgrad", "Arbeitsvielfalt, Abwechslung", "Entscheidungsspielraum"],

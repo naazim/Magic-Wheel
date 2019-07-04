@@ -1,7 +1,6 @@
 {
   "reset": "reset",
   "download": "download",
-  "arr": ["Fun at work", "Sense of work", "Tasks"],
   "chartdata": [
     ["Fun at work", "Sense of work", "Tasks"],
     ["Level of challenge", "Variety of work", "Space for own decision"],
