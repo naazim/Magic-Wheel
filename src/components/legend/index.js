@@ -1,14 +1,12 @@
 import React from 'react';
+import i18next from 'i18next';
 import {colors} from '../chart';
 
-const colorText = {
-  en: [ 'Agree', 'Neutral', 'Disagree' ]
-};
-
 const Legend = () => {
+  const colorText = i18next.t('colorStatus', {returnObjects: true});
   return (
     <div className="mw-legend">
-      { colors.map((color, i) => <span key={i} className="mw-legend__color" style={{'--bgcolor': color}} >{colorText.en[i]}</span>) }
+      { colors.map((color, i) => <span key={i} className="mw-legend__color" style={{'--bgcolor': color}} >{colorText[i]}  </span>) }
     </div>
   );
 };
