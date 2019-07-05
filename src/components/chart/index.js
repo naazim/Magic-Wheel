@@ -1,7 +1,6 @@
 import React from 'react';
 import d3 from 'd3';
 
-
 export const colors = ["#7FD322", "#FFD805", "#DC3545"];
 
 class Chart extends React.Component {
@@ -16,10 +15,8 @@ class Chart extends React.Component {
     // only update chart if the data has changed
     if (prevProps.data !== layerData) {
 
-
       // Remove the existing text before adding new
       this.svg.selectAll(`.chart__text`).remove();
-
 
       for (let index = 0; index < layerData.length; index++) {
         //Add the updated text layer
@@ -116,16 +113,12 @@ class Chart extends React.Component {
         });
 
       this.addTextLayer(index);
-
-
     }
   };
-
 
   render() {
     return <div className="chart"/>;
   }
-
 }
 
 export default Chart;
