@@ -26,7 +26,7 @@ const Main = () => {
       <Header/>
       <main className="mw-main">
         <Legend />
-        <Chart />
+        <Chart data={i18next.t('chartdata', {returnObjects: true})} />
         <div className="mw-main__buttons">
           <Button className="mw-btn__secondary" onClick={onResetClick}>{i18next.t('reset')}</Button>
           <Button className="mw-btn__primary"onClick={onDownloadClick}>{i18next.t('download')}</Button>
