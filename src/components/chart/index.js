@@ -35,10 +35,11 @@ class Chart extends React.Component {
       .append("text")
       .attr("class", `chart__text${index === 0 ? ' chart__text--innermost' : ''}`)
       .attr("dy", this.textPadding) //Move the text down
+      .attr("dx", this.textPadding / 2 / Math.PI * -index) //Move the text down
+      .style({"text-anchor": "middle"})
       .append("textPath")
       .attr("id", (d, i) => `chart__textpath${index}_${i}`)
-      .style({"text-anchor": "middle"})
-      .attr("startOffset", `23%`)
+      .attr("startOffset", "25%")
       .attr("xlink:href", (d, i) => `#chart__arc${index}_${i}`)
       .text(d => d);
   };
@@ -90,9 +91,7 @@ class Chart extends React.Component {
         .outerRadius(layerSize + layerSize * index);
 
       //Creates function that will turn the layer data into start and end angles
-      const pie = d3.layout.pie().value(function (d) {
-        return true;
-      });
+      const pie = d3.layout.pie().value(() => true);
 
       //Draw the arcs themselves
       this.svg
