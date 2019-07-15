@@ -52,21 +52,23 @@ class Chart extends React.Component {
       .map((z => (+z < 16 ? "0" : "") + (+z > 255 ? 255 : +z).toString(16)))
       .join("");
 
+    const containerWidth = document.querySelector('.chart').clientWidth;
     const containerHeight = document.querySelector('.chart').clientHeight;
     const margin = {left: 24, top: 24, right: 24, bottom: 24},
-      width = containerHeight - margin.left - margin.right,
+      width = containerWidth - margin.left - margin.right,
       height = containerHeight - margin.top - margin.bottom;
+    const minSize = Math.min(width, height);
 
 
-    const layerSize = height / layerData.length / 2;
+    const layerSize = minSize / layerData.length / 2;
     this.textPadding = layerSize / 2 + 4; // 4 = border width * 2
 
 
     this.svg = d3
       .select(".chart")
       .append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
+      .attr("width", minSize + margin.left + margin.right)
+      .attr("height", minSize + margin.top + margin.bottom)
       .attr("id", "multiLayerPie")
       .style("font-family", "\"Roboto\", -apple-system, BlinkMacSystemFont, \"Segoe UI\"")
       .append("g")
@@ -74,9 +76,9 @@ class Chart extends React.Component {
       .attr(
         "transform",
         "translate(" +
-        (width / 2 + margin.left) +
+        (minSize / 2 + margin.left) +
         "," +
-        (height / 2 + margin.top) +
+        (minSize / 2 + margin.top) +
         ")"
       );
 
