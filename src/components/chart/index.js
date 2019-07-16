@@ -31,15 +31,13 @@ class Chart extends React.Component {
     return this.svg
       .selectAll(`.chart__text${index}`)
       .data(layerData[index])
-      .enter()
-      .append("text")
+      .enter().append("text")
       .attr("class", "chart__text")
       .attr("dy", this.textPadding) //Move the text down
-      .attr("dx", this.textPadding / 2 / Math.PI * -index) //Move the text down
-      .style({"text-anchor": "middle", "letter-spacing": layerData.length - index})
+      .style({"letter-spacing": layerData.length - index})
       .append("textPath")
-      .attr("id", (d, i) => `chart__textpath${index}_${i}`)
-      .attr("startOffset", "25%")
+      .attr("startOffset","50%")
+      .style("text-anchor","middle")
       .attr("xlink:href", (d, i) => `#chart__arc${index}_${i}`)
       .text(d => d);
   };
@@ -94,17 +92,29 @@ class Chart extends React.Component {
 
       //Creates function that will turn the layer data into start and end angles
       const pie = d3.layout.pie().value(() => true);
+      const self = this;
 
-      //Draw the arcs themselves
+      // Draw the arcs themselves
       this.svg
         .selectAll(`.chart__arc${index}`)
         .data(pie(layerData[index]))
-        .enter()
-        .append("path")
+        .enter().append("path")
         .attr("class", "chart__arc")
         .attr("d", arc)
-        .attr("id", (d, i) => `chart__arc${index}_${i}`)
-        .on("click", function (d) {
+        //   .attr("id", (d, i) => `chart__arc${index}_${i}`)
+        .each(function(d,i) {
+          const firstArcSection = /(^.+?)L/;
+          let newArc = firstArcSection.exec( d3.select(this).attr("d") )[1];
+          newArc = newArc.replace(/,/g , " ");
+
+          //Create a new invisible arc that the text can flow along
+          self.svg.append("path")
+            .attr("class", "chart__arc--hidden")
+            .attr("id",`chart__arc${index}_${i}`)
+            .attr("d", newArc)
+            .style("fill", "none");
+        })
+        .on("click", function () {
           const currentColorRGB = d3.select(this).style("fill");
           const currentColor = rgbToHex(currentColorRGB); //current color in hex
           const nextColorIndex = colors.indexOf(currentColor.toUpperCase()) + 1;
@@ -112,6 +122,8 @@ class Chart extends React.Component {
             nextColorIndex >= colors.length ? colors[0] : colors[nextColorIndex];  //if you need white as well, use '>' instead of '>='
           d3.select(this).style("fill", nextColor);
         });
+
+  
 
       this.addTextLayer(index);
     }
