@@ -12,15 +12,11 @@ class Chart extends React.Component {
   componentDidUpdate(prevProps) {
     const {data: layerData} = this.props;
 
-    // only update chart if the data has changed
-    if (prevProps.data !== layerData) {
-
-      // Remove the existing text before adding new
-      this.svg.selectAll(`.chart__text`).remove();
+    if (prevProps.data !== layerData) {   // only update chart if the data has changed
+      this.svg.selectAll(`.chart__text`).remove();  // Remove the existing text before adding new
 
       for (let index = 0; index < layerData.length; index++) {
-        //Add the updated text layer
-        this.addTextLayer(index);
+        this.addTextLayer(index);   //Add the updated text layer
       }
     }
   }
@@ -122,8 +118,6 @@ class Chart extends React.Component {
             nextColorIndex >= colors.length ? colors[0] : colors[nextColorIndex];  //if you need white as well, use '>' instead of '>='
           d3.select(this).style("fill", nextColor);
         });
-
-  
 
       this.addTextLayer(index);
     }
