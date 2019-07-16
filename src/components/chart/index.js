@@ -33,10 +33,10 @@ class Chart extends React.Component {
       .data(layerData[index])
       .enter()
       .append("text")
-      .attr("class", `chart__text${index === 0 ? ' chart__text--innermost' : ''}`)
+      .attr("class", "chart__text")
       .attr("dy", this.textPadding) //Move the text down
       .attr("dx", this.textPadding / 2 / Math.PI * -index) //Move the text down
-      .style({"text-anchor": "middle"})
+      .style({"text-anchor": "middle", "letter-spacing": layerData.length - index})
       .append("textPath")
       .attr("id", (d, i) => `chart__textpath${index}_${i}`)
       .attr("startOffset", "25%")
