@@ -30,7 +30,6 @@ class Chart extends React.Component {
       .enter().append("text")
       .attr("class", "chart__text")
       .attr("dy", this.textPadding) //Move the text down
-      .style({"letter-spacing": layerData.length - index})
       .append("textPath")
       .attr("startOffset","50%")
       .style("text-anchor","middle")
@@ -46,35 +45,22 @@ class Chart extends React.Component {
       .map((z => (+z < 16 ? "0" : "") + (+z > 255 ? 255 : +z).toString(16)))
       .join("");
 
-    const containerWidth = document.querySelector('.chart').clientWidth;
-    const containerHeight = document.querySelector('.chart').clientHeight;
-    const margin = {left: 24, top: 24, right: 24, bottom: 24},
-      width = containerWidth - margin.left - margin.right,
-      height = containerHeight - margin.top - margin.bottom;
-    const minSize = Math.min(width, height);
+    const chartSize = 800,
+      margin = 4;
 
-
-    const layerSize = minSize / layerData.length / 2;
+    const layerSize = chartSize / layerData.length / 2;
     this.textPadding = layerSize / 2 + 4; // 4 = border width * 2
-
 
     this.svg = d3
       .select(".chart")
       .append("svg")
-      .attr("width", minSize + margin.left + margin.right)
-      .attr("height", minSize + margin.top + margin.bottom)
-      .attr("id", "multiLayerPie")
-      .style("font-family", "\"Roboto\", -apple-system, BlinkMacSystemFont, \"Segoe UI\"")
+      .attr("class", "chart__svg")
+      .attr('viewBox',`0 0 ${chartSize + margin} ${chartSize + margin}`)
       .append("g")
-      .attr("class", "wrapper")
-      .attr(
-        "transform",
-        "translate(" +
-        (minSize / 2 + margin.left) +
-        "," +
-        (minSize / 2 + margin.top) +
-        ")"
-      );
+      .attr({
+        "class": "wrapper",
+        "transform": `translate(${chartSize / 2 + margin / 2},${chartSize / 2 + margin / 2})`
+      });
 
 
     // Loop through arrays and draw svg fo all layers
@@ -97,7 +83,6 @@ class Chart extends React.Component {
         .enter().append("path")
         .attr("class", "chart__arc")
         .attr("d", arc)
-        //   .attr("id", (d, i) => `chart__arc${index}_${i}`)
         .each(function(d,i) {
           const firstArcSection = /(^.+?)L/;
           let newArc = firstArcSection.exec( d3.select(this).attr("d") )[1];
@@ -110,7 +95,7 @@ class Chart extends React.Component {
             .attr("d", newArc)
             .style("fill", "none");
         })
-        .on("click", function () {
+        .on("click", function() {
           const currentColorRGB = d3.select(this).style("fill");
           const currentColor = rgbToHex(currentColorRGB); //current color in hex
           const nextColorIndex = colors.indexOf(currentColor.toUpperCase()) + 1;

@@ -1,7 +1,17 @@
 .chart {
   text-align: center;
   flex: 1;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI;
+
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+}
+
+.chart__svg {
+  width: 100%;
+  height: 100%;
 }
 
 .chart__arc {
