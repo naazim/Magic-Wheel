@@ -3,6 +3,7 @@
   "download": "download",
   "colorStatus":[ "Agree", "Neutral", "Disagree" ],
   "chartdata": [
+    [],
     ["Fun at work", "Sense of work", "Tasks"],
     ["Level of challenge", "Variety of work", "Space for own decision"],
     ["Relationship to superior", "Relationship to colleagues and customers", "Corporate culture, mission, values", "Working atmosphere at all"],

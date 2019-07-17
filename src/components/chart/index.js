@@ -115,7 +115,7 @@ class Chart extends React.Component {
           const currentColor = rgbToHex(currentColorRGB); //current color in hex
           const nextColorIndex = colors.indexOf(currentColor.toUpperCase()) + 1;
           const nextColor =
-            nextColorIndex >= colors.length ? colors[0] : colors[nextColorIndex];  //if you need white as well, use '>' instead of '>='
+            nextColorIndex > colors.length ? colors[0] : colors[nextColorIndex];  //if you don't need white during switch, use '>=' instead of '>'
           d3.select(this).style("fill", nextColor);
         });
 
