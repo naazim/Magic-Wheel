@@ -21,7 +21,7 @@
   display: flex;
   flex-direction: column;
 
-  [class^='mw-btn']:not(:last-child) {
+  .mw-btn:not(:last-child) {
     margin-bottom: $spacing-s;
   }
 
@@ -29,7 +29,7 @@
     flex-direction: row;
     justify-content: space-between;
 
-    [class^='mw-btn']:not(:last-child) {
+    .mw-btn:not(:last-child) {
       margin: 0
     }
   }
