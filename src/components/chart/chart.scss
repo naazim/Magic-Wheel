@@ -26,11 +26,13 @@
 }
 
 .chart__text {
-  fill: #6b6b6b;
+  fill: #000;
   font-size: .8em;
   pointer-events: none;
   letter-spacing: 1px;
   user-select: none;
+
+  animation: fade-in 1s ease-out;
 }
 
 .chart__arc--hidden {
