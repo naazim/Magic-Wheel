@@ -19,5 +19,18 @@
 
 .mw-main__buttons {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+
+  [class^='mw-btn']:not(:last-child) {
+    margin-bottom: $spacing-s;
+  }
+
+  @include x-small-screen {
+    flex-direction: row;
+    justify-content: space-between;
+
+    [class^='mw-btn']:not(:last-child) {
+      margin: 0
+    }
+  }
 }

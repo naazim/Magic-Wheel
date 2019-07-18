@@ -1,0 +1,35 @@
+$x-small-screen-width: 320px;
+$small-screen-width: 576px;
+$medium-screen-width: 768px;
+$large-screen-width: 992px;
+$x-large-screen-width: 1200px;
+
+@mixin x-small-screen {
+  @media (min-width: #{$x-small-screen-width}) {
+    @content;
+  }
+}
+
+@mixin small-screen {
+  @media (min-width: #{$small-screen-width}) {
+    @content;
+  }
+}
+
+@mixin medium-screen {
+  @media (min-width: #{$medium-screen-width}) {
+    @content;
+  }
+}
+
+@mixin large-screen {
+  @media (min-width: #{$large-screen-width}) {
+    @content;
+  }
+}
+
+@mixin x-large-screen {
+  @media (min-width: #{$x-large-screen-width}) {
+    @content;
+  }
+}
