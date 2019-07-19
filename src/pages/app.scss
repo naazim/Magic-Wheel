@@ -11,10 +11,14 @@
 .mw-main {
   height: 100%;
   display: flex;
-  padding: $spacing-m;
+  padding: $spacing-s;
   flex-direction: column;
   flex: 1;
   overflow: auto;
+
+  @include medium-screen {
+    padding: $spacing-m;
+  }
 }
 
 .mw-main__buttons {

@@ -1,27 +1,36 @@
 .mw-legend {
-  position: absolute;
   right: $spacing-m;
   display: flex;
-  flex-direction: column;
-  font-size: .8em;
+  justify-content: space-between;
+  flex-direction: row;
+  font-size: .8rem;
   color: $secondary-color;
   user-select: none;
 
-  &__color {
-    margin-bottom: $spacing-s;
-    padding-left: $spacing-m + 10;
-    height: $spacing-m;
-    line-height: $spacing-m;
-    display: block;
+  @include medium-screen {
+    position: absolute;
+    font-size: .9rem;
+    flex-direction: column;
+  }
 
+  &__item {
+    padding-left: $spacing-s + 10;
+    height: $spacing-s;
+    line-height: $spacing-s;
+    display: block;
+    position: relative;
+
+    @include medium-screen {
+      margin-bottom: $spacing-s;
+    }
 
     &::before {
       content: '';
       position: absolute;
       left: 0;
-      width: $spacing-m;
-      height: $spacing-m;
-      border-radius: $spacing-m;
+      width: $spacing-s;
+      height: $spacing-s;
+      border-radius: 2px;
       display: block;
       background-color: var(--bgcolor);;
     }

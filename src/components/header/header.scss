@@ -1,12 +1,19 @@
-
 .mw-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: $spacing-m;
+  padding: $spacing-s;
   border-bottom: 2px solid $primary-color;
 
+  @include medium-screen {
+    padding: $spacing-m;
+  }
+
   &__logo {
-    height: 30px;
+    height: 20px;
+
+    @include medium-screen {
+      height: 30px;
+    }
   }
 }

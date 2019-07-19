@@ -6,7 +6,7 @@ const Legend = () => {
   const colorText = i18next.t('colorStatus', {returnObjects: true});
   return (
     <div className="mw-legend">
-      { colors.map((color, i) => <span key={i} className="mw-legend__color" style={{'--bgcolor': color}} >{colorText[i]}  </span>) }
+      { colors.map((color, i) => <span key={i} className="mw-legend__item" style={{'--bgcolor': color}} >{colorText[i]}  </span>) }
     </div>
   );
 };

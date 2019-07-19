@@ -2,7 +2,6 @@
   text-align: center;
   flex: 1;
   font-size: 1.24rem;
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI;
   overflow: hidden;
   width: 100%;
   height: auto;
@@ -23,6 +22,7 @@
   stroke-width: 2px;
   cursor: pointer;
   transition: fill 0.2s ease-in;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .chart__text {

@@ -1,11 +1,11 @@
 .mw-btn {
   color: $secondary-color;
   border: 1px solid $secondary-color;
-  font-size: 1.1em;
-  height: $btn-height;
-  min-width: 100px;
+  font-size: .9rem;
+  height: $btn-height-s;
+  min-width: 90px;
   border-radius: $radius;
-  padding: 0 $spacing-m;
+  padding: 0 $spacing-s;
   display: inline-block;
   text-align: center;
   background-color: transparent;
@@ -16,7 +16,14 @@
   text-transform: capitalize;
   transition: opacity 0.5s ease-in;
 
-  &:hover, &:focus {
+  @include medium-screen {
+    font-size: 1.1rem;
+    height: $btn-height-m;
+    padding: 0 $spacing-m;
+    min-width: 100px;
+  }
+
+    &:hover, &:focus {
     opacity: 0.6;
   }
 

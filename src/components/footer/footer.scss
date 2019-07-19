@@ -1,10 +1,14 @@
 .mw-footer {
   background-color: #3c414b;
   color: #fff;
-  height: 100px;
+  height: $panel-height-s;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
   user-select: none;
+
+  @include medium-screen {
+    height: $panel-height-m;
+  }
 }
